@@ -6,33 +6,15 @@ import sys
 import math
 import time
 import datetime
+import utils
 
 def bin(data):
 	return np.linspace(min(data), max(data), 100)
 
 
 def main():
-	df = pd.read_csv(r'dataset_train.csv')
-	colors = {
-		"Birthday":							"#9C27B0",
-		"Best Hand":						"#F44336",
-		"Arithmancy":						"#03A9F4",
-		"Astronomy":						"#FFEE58",
-		"Herbology":						"#4CAF50",
-		"Defense Against the Dark Arts":	"#FBC02D",
-		"Divination":						"#A5D6A7",
-		"Muggle Studies":					"#7B1FA2",
-		"Ancient Runes":					"#D32F2F",
-		"History of Magic":					"#90CAF9",
-		"Transfiguration":					"#EF9A9A",
-		"Potions":							"#0277BD",
-		"Care of Magical Creatures":		"#FFF59D",
-		"Charms":							"#558B2F",
-		"Flying":							"#CE93D8",
-		"Year":								"#81C784",
-		"Month":							"#8E24AA",
-		"Day":								"#F44336"
-	}
+	df = utils.dataframe()
+	colors = utils.colors()
 
 	df = df.drop(columns=['Index', 'Hogwarts House', 'First Name', 'Last Name'])
 	df['Best Hand'] = df['Best Hand'].replace(to_replace=['Left', 'Right'], value=[1, 2])
