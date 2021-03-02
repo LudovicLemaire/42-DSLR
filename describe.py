@@ -39,7 +39,7 @@ def main():
 
 	dico_numerals = {} 
 	for label in listOfColumnNames:
-		if df[label].dtypes == 'string' or df[label].dtypes == 'object':
+		if df[label].dtypes == str or df[label].dtypes == object:
 			continue
 		dico_numerals[label] = {
 			'count': 0,
@@ -54,7 +54,7 @@ def main():
 		}
 		
 	for label in listOfColumnNames:
-		if df[label].dtypes == 'string' or df[label].dtypes == 'object':
+		if df[label].dtypes == str or df[label].dtypes == object:
 			continue
 		for index, row in df.iterrows():
 			if row[label] > dico_numerals[label]['max']:

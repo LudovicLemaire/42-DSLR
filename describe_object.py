@@ -39,7 +39,7 @@ def main():
 
     dico_objects = {} 
     for label in listOfColumnNames:
-        if df[label].dtypes == 'string' or df[label].dtypes == 'object':
+        if df[label].dtypes == str or df[label].dtypes == object:
             dico_objects[label] = {
                 'count': 0,
                 'unique': 0,
@@ -49,7 +49,7 @@ def main():
             }
     
     for label in listOfColumnNames:
-        if df[label].dtypes == 'string' or df[label].dtypes == 'object':
+        if df[label].dtypes == str or df[label].dtypes == object:
             for index, row in df.iterrows():
                 if (isinstance(row[label], float) and np.isnan(row[label])):
                     continue
