@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 
 import numpy as np
@@ -10,9 +11,8 @@ import utils
 import itertools
 
 def main():
+	matplotlib.use('webagg')
 	iterable = [
-		"Birthday",
-		"Best Hand",
 		"Arithmancy",
 		"Astronomy",
 		"Herbology",
@@ -25,34 +25,28 @@ def main():
 		"Potions",
 		"Care of Magical Creatures",
 		"Charms",
-		"Flying",
-		"Year",
-		"Month",
-		"Day"
+		"Flying"
 	]
+	plt.style.use('dark_background')
+
+	colors_house = utils.colors_house()
 
 	df = utils.dataframe()
 	colors = utils.colors()
 
-	df = df.drop(columns=['Index', 'Hogwarts House', 'First Name', 'Last Name'])
-	df['Best Hand'] = df['Best Hand'].replace(to_replace=['Left', 'Right'], value=[1, 2])
-	df['Year'] = df['Birthday'].apply(lambda x: int(x[0:4]))
-	df['Month'] = df['Birthday'].apply(lambda x: int(x[5:7]))
-	df['Day'] = df['Birthday'].apply(lambda x: int(x[8:10]))
-	df['Birthday'] = df['Birthday'].apply(lambda x: time.mktime(datetime.datetime.strptime(x, "%Y-%m-%d").timetuple()))
-
+	df_house = df['Hogwarts House']
+	df = df.drop(columns=['Index', 'First Name', 'Last Name'])
 
 	allIterables = list(itertools.combinations(iterable, 2))
-
 	nb_columns = 0
 	for column in allIterables:
 		nb_columns += 1
 
 	i = 1
 	for el in allIterables:
-		plt.subplot(7, nb_columns / 7 + 1, i)
+		plt.subplot(nb_columns / 9 + 1, 9, i)
 		i += 1
-		plt.scatter(df[el[0]], df[el[1]], color=utils.combine_hex_values(colors[el[0]], colors[el[1]]), alpha=0.25, label=[el[0], el[1]], s=3)
+		plt.scatter(df[el[0]], df[el[1]], c=df['Hogwarts House'].map(colors_house), alpha=0.25, label=[el[0][:10], el[1][:10]], marker='o', s=2)
 		plt.xticks([])
 		plt.yticks([])
 		plt.legend(loc='upper right', fontsize=5)

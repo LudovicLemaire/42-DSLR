@@ -26,6 +26,15 @@ def colors():
 	}
 	return colors
 
+def colors_house():
+	colors_house = {
+		"Ravenclaw": "#409EFF",
+		"Slytherin": "#F56C6C",
+		"Gryffindor": "#67C23A",
+		"Hufflepuff": "#E6A23C"
+	}
+	return colors_house
+
 def dataframe():
 	df = pd.read_csv(r'dataset_train.csv')
 	return df
@@ -53,3 +62,15 @@ def calc_quantile(array, q):
     right = left + 1
     i, j = array[left], array[right]
     return i + (j - i) * fraction
+
+def rgb2hex(rgb):
+    return '#%02x%02x%02x' % rgb
+
+def hex2rgb(hexa):
+	return tuple(int(hexa[i:i+2], 16) for i in (0, 2, 4))
+
+def combine_hex_values(c1, c2):
+	rgb1 = hex2rgb(c1[1:])
+	rgb2 = hex2rgb(c2[1:])
+	final_rgb = (int((rgb1[0] + rgb2[0]) / 2), int((rgb1[1] + rgb2[1]) / 2), int((rgb1[2] + rgb2[2]) / 2))
+	return rgb2hex(final_rgb)
