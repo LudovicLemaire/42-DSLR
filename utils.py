@@ -1,7 +1,12 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import csv, argparse
 import sys
 import math
+
+def get_house():
+	return ['Ravenclaw', 'Slytherin', 'Gryffindor', 'Hufflepuff'] 
 
 def colors():
 	colors = {
@@ -74,3 +79,70 @@ def combine_hex_values(c1, c2):
 	rgb2 = hex2rgb(c2[1:])
 	final_rgb = (int((rgb1[0] + rgb2[0]) / 2), int((rgb1[1] + rgb2[1]) / 2), int((rgb1[2] + rgb2[2]) / 2))
 	return rgb2hex(final_rgb)
+
+def get_valuable_dataframe():
+	df_complete = dataframe()
+	df = pd.DataFrame()
+
+	df['Hogwarts House'] = df_complete['Hogwarts House']
+	df['Ancient Runes'] = df_complete['Ancient Runes']
+	df['Defense Against the Dark Arts'] = df_complete['Defense Against the Dark Arts']
+	df['Herbology'] = df_complete['Herbology']
+	df['Transfiguration'] = df_complete['Transfiguration']
+	df['Divination'] = df_complete['Divination']
+	df['Flying'] = df_complete['Flying']
+
+	return df
+
+def show_standardize(x, y, house, df, feature_1, feature_2, theta):
+	plt.style.use('dark_background')
+	plt.figure()
+	is_house , not_house = (y==1).reshape(len(x[:,0]),1) , (y==0).reshape(len(x[:,2]),1)
+	plt.scatter(x[is_house[:,0],1], x[is_house[:,0],2], c='#008FFB', marker='D', s=4, alpha=0.35)
+	plt.scatter(x[not_house[:,0],1], x[not_house[:,0],2], c='#FF4560', marker='s', s=4, alpha=0.35)
+	x_value = np.array([np.min(x[not_house[:,0],1]),np.max(x[not_house[:,0],1])])
+	y_value = -(theta[0] + theta[1]*x_value)/theta[2]
+	plt.xlabel(df.columns[feature_1])
+	plt.ylabel(df.columns[feature_2])
+	plt.legend([house, 'Other'],loc=0)
+	plt.title(df.columns[feature_1] + ' vs ' + df.columns[feature_2] + ': standardized data')
+	plt.plot(x_value, y_value, '#00E396', alpha=0.5)
+	plt.show()
+
+def show_cost(error_history):
+	plt.style.use('dark_background')
+	plt.figure()
+	plt.plot(range(len(error_history)), error_history, c='#FF4560')
+	plt.ylabel('Cost')
+	plt.xlabel('Iteration')
+	plt.title('Cost function graph')
+	plt.show()
+
+def pie_chart(results, title):
+	labels = []
+	sizes = []
+	for i in results:
+		if (not i in labels):
+			labels.append(i)
+			sizes.append(0)
+	for i in results:
+		sizes[labels.index(i)] += 1
+	plt.figure()
+	plt.title(title)
+	plt.pie(sizes, labels=labels, autopct='%1.2f%%', shadow=True, startangle=90)
+	plt.show()
+
+def filter_data(data, house, feature_1, feature_2):
+	x = []
+	y = []
+	data = data.to_numpy()
+	for row in data:
+		if not np.isnan(row[feature_1]) and not np.isnan(row[feature_2]):
+			x.append([row[feature_1], row[feature_2]])
+			y.append(1 if row[0] == house else 0)
+	return np.array(x), np.array(y)
+
+def create_csv(row_list, name):
+	with open(name, 'w', newline='') as file:
+		writer = csv.writer(file)
+		writer.writerows(row_list)
