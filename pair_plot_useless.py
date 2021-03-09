@@ -2,24 +2,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import numpy as np
-import sys
 import math
 import time
 import datetime
 import utils
-import itertools
 
 def count_vowel(word):
 	vowel=0
 	for char in word:
-		if char.lower() in "aeiou":
+		if char.lower() in "aeiouy":
 			vowel+=1
 	return vowel
 
 def main():
 	b_df = utils.dataframe()
-	colors = utils.colors()
 
 	b_df['Year'] = b_df['Birthday'].apply(lambda x: int(x[0:4]))
 	b_df['Best Hand'] = b_df['Best Hand'].replace(to_replace=['Left', 'Right'], value=[1, 2])

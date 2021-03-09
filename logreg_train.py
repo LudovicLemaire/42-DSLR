@@ -13,7 +13,7 @@ def get_theta(x, y, theta, lr, epoch, verb_cost):
 	history_err = []
 	for i in range(epoch):
 		m = len(x)
-		h0 = sigmoid(np.dot(x, theta))
+		h0 = utils.sigmoid(np.dot(x, theta))
 		grad = 1/m * np.dot(x.transpose(), (h0 - y))
 		theta -= lr * grad
 		if verb_cost == True:
@@ -36,9 +36,9 @@ def sigmoid(z):
 	return(1 / (1 + np.exp(-z)))
 
 if __name__ == '__main__':
-	min_accuracy = 0.98
+	min_accuracy = 0.975
 	iteration = 5000
-	learning_rate = 1
+	learning_rate = 1.75
 	verb_print = True
 	verb_standardize = False
 	verb_cost = False

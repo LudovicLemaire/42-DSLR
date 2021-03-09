@@ -11,13 +11,12 @@ import utils
 import itertools
 
 def main():
-	matplotlib.use('webagg')
+	#matplotlib.use('webagg')
 	iterable = [
 		'Astronomy',
 		'Herbology',
 		'Ancient Runes',
 		'Charms',
-		'Flying',
 		'Transfiguration',
 		'Divination',
 
@@ -40,6 +39,7 @@ def main():
 		'History of Magic',
 		'Potions',
 		'Care of Magical Creatures',
+		'Flying',
 		
 	])
 
