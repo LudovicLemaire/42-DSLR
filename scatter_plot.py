@@ -31,7 +31,7 @@ def main():
 		"Day"
 	]
 
-	df = utils.dataframe()
+	df = utils.dataframe('dataset_train.csv')
 	colors = utils.colors()
 
 	df = df.drop(columns=['Index', 'Hogwarts House', 'First Name', 'Last Name'])
@@ -50,7 +50,7 @@ def main():
 
 	i = 1
 	for el in allIterables:
-		plt.subplot(7, nb_columns / 7 + 1, i)
+		plt.subplot(7, math.ceil(nb_columns / 7 + 1), i)
 		i += 1
 		plt.scatter(df[el[0]], df[el[1]], color=utils.combine_hex_values(colors[el[0]], colors[el[1]]), alpha=0.25, label=[el[0], el[1]], s=3)
 		plt.xticks([])

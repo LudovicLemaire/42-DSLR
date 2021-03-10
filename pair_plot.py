@@ -3,7 +3,7 @@ import seaborn as sns
 import utils
 
 def main():
-	df = utils.dataframe()
+	df = utils.dataframe('dataset_train.csv')
 	colors = utils.colors_house()
 
 	df = df.drop(columns=['Index', 'First Name', 'Last Name', 'Birthday', 'Best Hand'])

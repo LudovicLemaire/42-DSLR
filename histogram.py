@@ -13,7 +13,7 @@ def bin(data):
 
 
 def main():
-	df = utils.dataframe()
+	df = utils.dataframe('dataset_train.csv')
 	colors = utils.colors()
 
 	df = df.drop(columns=['Index', 'Hogwarts House', 'First Name', 'Last Name'])
@@ -29,7 +29,7 @@ def main():
 
 	i = 1
 	for column in df:
-		plt.subplot(4, nb_columns / 4 + 1, i)
+		plt.subplot(4, math.ceil(nb_columns / 4 + 1), i)
 		i += 1
 		plt.hist(df[column], bins=bin(df[column]), color=colors[column], label=column, alpha=0.75, edgecolor='black', linewidth=0.5)
 		plt.legend(loc='upper right')

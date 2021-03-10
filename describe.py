@@ -28,14 +28,13 @@ def describe(dico_numerals):
 		sys.stdout.flush()
 
 def main():
-	print('\033[92m' + "----------------------------------------------------------------------------------------------------------START---------------------------------------------------------------------------------------------------------------------------" + '\033[0m')
 	df2 = pd.DataFrame()
-	df = utils.dataframe()
+	if not (len(sys.argv) == 1+1):
+		print('\033[91m' + '✘ Error: ' + '\033[0m' + 'CSV file is missing, please add his path as argument')
+		sys.exit()
+	df = utils.dataframe(sys.argv[1])
 	columnsNamesArr = df.columns.values
 	listOfColumnNames = list(columnsNamesArr)
-
-	print(df.describe())
-	print('\033[94m' + "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + '\033[0m')
 
 	dico_numerals = {} 
 	for label in listOfColumnNames:
@@ -64,29 +63,14 @@ def main():
 			if np.isnan(row[label]) != True:
 				dico_numerals[label]['count']+=1
 				dico_numerals[label]['total'] += row[label]
-		dico_numerals[label]['mean'] = dico_numerals[label]['total'] / dico_numerals[label]['count']
-		
-		dico_numerals[label]['25%'] = utils.calc_quantile(df[label].dropna(), 0.25)
-		dico_numerals[label]['50%'] = utils.calc_quantile(df[label].dropna(), 0.5)
-		dico_numerals[label]['75%'] = utils.calc_quantile(df[label].dropna(), 0.75)
-		dico_numerals[label]['std'] = utils.stdev(df[label].dropna())
+		if (dico_numerals[label]['count'] > 0):
+			dico_numerals[label]['mean'] = dico_numerals[label]['total'] / dico_numerals[label]['count']
+			dico_numerals[label]['25%'] = utils.calc_quantile(df[label].dropna(), 0.25)
+			dico_numerals[label]['50%'] = utils.calc_quantile(df[label].dropna(), 0.5)
+			dico_numerals[label]['75%'] = utils.calc_quantile(df[label].dropna(), 0.75)
+			dico_numerals[label]['std'] = utils.stdev(df[label].dropna())
 
 	describe(dico_numerals)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	print('\033[91m' + "-----------------------------------------------------------------------------------------------------------END----------------------------------------------------------------------------------------------------------------------------" + '\033[0m')
 if __name__ == '__main__':
 	main()

@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import utils
+import sys
 
 def predict_house(student, weights):
 	results = [[], [], [], []]
@@ -37,8 +38,12 @@ def contain_value_from_train(df):
 
 if __name__ == "__main__":
 	student_results = []
-	df = pd.read_csv("dataset_train.csv")
-	weights = pd.read_csv("weights.csv")
+	if not (len(sys.argv) == 2+1):
+		print('\033[91m' + '✘ Error: ' + '\033[0m' + 'CSV files are missing, please add .csv to predict as argument, then weight')
+		print('\033[94m' + 'Example: ' + '\033[0m' + 'python3.9 logreg_predict.py dataset_test.csv weights.csv')
+		sys.exit()
+	df = pd.read_csv(sys.argv[1])
+	weights = pd.read_csv(sys.argv[2])
 	show_chart = True
 	
 	row_list = [["Index", "Hogwarts House"]]
@@ -59,6 +64,6 @@ if __name__ == "__main__":
 		if (show_chart == True):
 			utils.show_repartition(student_results, df["Hogwarts House"].tolist())
 	else:
-		print("Houses are missing, pls provide a csv with them")
+		print('\033[93m' + '⚠ Houses are missing, pls provide a csv with them if you want to see Accuracy.' + '\033[0m')
 	utils.create_csv(row_list, "houses.csv")
 	

@@ -45,8 +45,8 @@ def colors_house():
 	}
 	return colors_house
 
-def dataframe():
-	df = pd.read_csv(r'dataset_train.csv')
+def dataframe(name):
+	df = pd.read_csv(name)
 	return df
 
 def sigmoid(z):
@@ -88,8 +88,8 @@ def combine_hex_values(c1, c2):
 	final_rgb = (int((rgb1[0] + rgb2[0]) / 2), int((rgb1[1] + rgb2[1]) / 2), int((rgb1[2] + rgb2[2]) / 2))
 	return rgb2hex(final_rgb)
 
-def get_valuable_dataframe():
-	df_complete = dataframe()
+def get_valuable_dataframe(name):
+	df_complete = dataframe(name)
 	df = pd.DataFrame()
 
 	df['Hogwarts House'] = df_complete['Hogwarts House']
@@ -174,3 +174,4 @@ def create_csv(row_list, name):
 	with open(name, 'w', newline='') as file:
 		writer = csv.writer(file)
 		writer.writerows(row_list)
+	print('\033[92m' + '✓ File [' + name + '] has been saved.' + '\033[0m')

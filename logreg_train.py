@@ -1,5 +1,6 @@
 import numpy as np
 import utils
+import sys
 
 def standardize(x):
 	mean = np.mean(x, axis=0)
@@ -42,7 +43,10 @@ if __name__ == '__main__':
 	verb_print = True
 	verb_standardize = False
 	verb_cost = False
-	df = utils.get_valuable_dataframe()
+	if not (len(sys.argv) == 1+1):
+		print('\033[91m' + '✘ Error: ' + '\033[0m' + 'CSV file is missing, please add his path as argument')
+		sys.exit()
+	df = utils.get_valuable_dataframe(sys.argv[1])
 	house = utils.get_house()
 	row_list = [['House', 'Feature1', 'Feature2', 'Theta1', 'Theta2', 'Theta3', 'Mean1', 'Mean2', 'Std1', 'Std2', 'Accuracy']]
 	for i in range(0, len(house)):
@@ -69,9 +73,9 @@ if __name__ == '__main__':
 					else:
 						print('\033[91m', end='')
 					print(str(ac) + '\033[0m\n')
-				if verb_standardize == True:
+				if verb_standardize == True and i == 0:
 					utils.show_standardize(x, y, house[i], df, feature_1, feature_2, theta)
-				if verb_cost == True:
+				if verb_cost == True and i == 0:
 					utils.show_cost(history_err)
 				if ac >= min_accuracy:
 					row_list.append([house[i], df.columns[feature_1], df.columns[feature_2], theta[0], theta[1], theta[2], mean[0], mean[1], std[0], std[1], ac])

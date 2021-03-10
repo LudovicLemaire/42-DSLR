@@ -31,7 +31,7 @@ def main():
 
 	colors_house = utils.colors_house()
 
-	df = utils.dataframe()
+	df = utils.dataframe('dataset_train.csv')
 	colors = utils.colors()
 
 	df_house = df['Hogwarts House']
@@ -44,7 +44,7 @@ def main():
 
 	i = 1
 	for el in allIterables:
-		plt.subplot(nb_columns / 9 + 1, 9, i)
+		plt.subplot(math.ceil(nb_columns / 9 + 1), 9, i)
 		i += 1
 		plt.scatter(df[el[0]], df[el[1]], c=df['Hogwarts House'].map(colors_house), alpha=0.25, label=[el[0][:10], el[1][:10]], marker='o', s=2)
 		plt.xticks([])

@@ -15,7 +15,10 @@ def count_vowel(word):
 	return vowel
 
 def main():
-	b_df = utils.dataframe()
+	b_df = utils.dataframe('dataset_train.csv')
+	colors = utils.colors_house()
+	colors = [colors['Ravenclaw'], colors['Slytherin'], colors['Gryffindor'], colors['Hufflepuff']]
+	sns.set_palette(sns.color_palette(colors))
 
 	b_df['Year'] = b_df['Birthday'].apply(lambda x: int(x[0:4]))
 	b_df['Best Hand'] = b_df['Best Hand'].replace(to_replace=['Left', 'Right'], value=[1, 2])
