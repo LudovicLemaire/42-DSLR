@@ -37,3 +37,10 @@ This are some visualizations for dataset:
 |----------------------------------|---------------------------------------------------------------------------------------------|
 |![pair_plot](assets/pair_plot.PNG)|![pair_plot_useless](assets/pair_plot_useless.PNG)                                           |
 |Pair plot from SeaBorn            |Tried to find if I could use birthday, names, best hand in some way, but they are all useless|
+
+### Training phase
+This are some visualizations during training:
+|[log_train.py](log_train.py)                    |[log_train.py](log_train.py)                |
+|------------------------------------------------|--------------------------------------------|
+|![log_train_result](assets/log_train_result.PNG)|![log_train_cost](assets/log_train_cost.PNG)|
+|Result once training is made between 2 features |Cost function                               |
