@@ -11,7 +11,7 @@ import utils
 import itertools
 
 def main():
-	matplotlib.use('webagg')
+	#matplotlib.use('webagg')
 	iterable = [
 		"Arithmancy",
 		"Astronomy",
