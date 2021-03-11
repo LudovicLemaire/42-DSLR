@@ -24,11 +24,11 @@ pip3 install pandas numpy matplotlib seaborn
 ### Data description
 This are some visualizations for dataset:
 
-|[describe.py](describe.py) is implementation of [pandas.DataFrame.describe](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)|
-|-------------------------------------------|
-|![describe](assets/describe.PNG)|
+|[describe.py](describe.py)      |[describe_object.py](describe_object.py)      |
+|--------------------------------|----------------------------------------------|
+|![describe](assets/describe.PNG)|![describe_object](assets/describe_object.PNG)|
 
-|[scatter_plot.py](scatter_plot.py)			|[scatter_plot_house.py](scatter_plot_house.py)				|[scatter_plot_house_upgraded.py](scatter_plot_house_upgraded.py)|
-|-------------------------------------------|-------------------------------------------|-------------------------------------------|
-|![scatter_plot](assets/scatter_plot.PNG)|![scatter_plot_house](assets/scatter_plot_house.PNG)|![scatter_plot_house_upgraded](assets/scatter_plot_house_upgraded.PNG)|
-| Show values for two courses using Cartesian coordinates|Same but with color for houses|Only the one I will use|
+|[scatter_plot.py](scatter_plot.py)                      |[scatter_plot_house.py](scatter_plot_house.py)      |[scatter_plot_house_upgraded.py](scatter_plot_house_upgraded.py)      |
+|--------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------|
+|![scatter_plot](assets/scatter_plot.PNG)                |![scatter_plot_house](assets/scatter_plot_house.PNG)|![scatter_plot_house_upgraded](assets/scatter_plot_house_upgraded.PNG)|
+| Show values for two courses using Cartesian coordinates|Same but with color for houses                      |Only the one I will use                                               |
