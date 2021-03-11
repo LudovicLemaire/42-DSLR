@@ -29,6 +29,6 @@ This are some visualizations for dataset:
 |![describe](assets/describe.PNG)|
 
 |[scatter_plot.py](scatter_plot.py)|[scatter_plot_house.py](scatter_plot_house.py)|[scatter_plot_house_upgraded.py](scatter_plot_house_upgraded.py)|
-|---------------------------------------------|-------------------------------------------------------|-----------------------------------------------------------|
+|-------------------------------------------|-------------------------------------------|-------------------------------------------|
 |![scatter_plot](assets/scatter_plot.PNG)|![scatter_plot_house](assets/scatter_plot_house.PNG)|![scatter_plot_house_upgraded](assets/scatter_plot_house_upgraded.PNG)|
 | Show values for two courses using Cartesian coordinates|Same but with color for houses|Only the one I will use|
