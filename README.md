@@ -4,6 +4,7 @@ DataScience x Logregistic Regression - School-42 project
 #### Goals:
 * Learn how to read a dataset, to visualize it in different ways, to select and clean unnecessary information from your data.
 * Implement one-vs-all logregistic regression that will solve classification problem
+* Every function that do the work for us is forbidden (predict, sigmoid, mean, ..), and must be recoded by hand
 
 Look at [subject.pdf](assets/fr.subject.pdf) for more information
 
@@ -38,7 +39,7 @@ This are some visualizations for dataset:
 |![pair_plot](assets/pair_plot.PNG)|![pair_plot_useless](assets/pair_plot_useless.PNG)                                           |
 |Pair plot from SeaBorn            |Tried to find if I could use birthday, names, best hand in some way, but they are all useless|
 
-### predicting phase
+### Training phase
 This are some visualizations during training:
 |[logreg_train.py](logreg_train.py)                    |[logreg_train.py](logreg_train.py)                |
 |------------------------------------------------------|--------------------------------------------------|
