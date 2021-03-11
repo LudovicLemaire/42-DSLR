@@ -38,9 +38,16 @@ This are some visualizations for dataset:
 |![pair_plot](assets/pair_plot.PNG)|![pair_plot_useless](assets/pair_plot_useless.PNG)                                           |
 |Pair plot from SeaBorn            |Tried to find if I could use birthday, names, best hand in some way, but they are all useless|
 
-### Training phase
+### predicting phase
 This are some visualizations during training:
 |[logreg_train.py](logreg_train.py)                    |[logreg_train.py](logreg_train.py)                |
-|------------------------------------------------|--------------------------------------------|
+|------------------------------------------------------|--------------------------------------------------|
 |![logreg_train_result](assets/logreg_train_result.PNG)|![logreg_train_cost](assets/logreg_train_cost.PNG)|
-|Result once training is made between 2 features |Cost function                               |
+|Result once training is made between 2 features       |Cost function                                     |
+
+### Predict phase
+This are some visualizations during training:
+|[logreg_predict.py](logreg_predict.py)             |[scatter_plot_house_error.py](scatter_plot_house_error.py)      |
+|---------------------------------------------------|----------------------------------------------------------------|
+|![logreg_predict](assets/logreg_predict.PNG)       |![scatter_plot_house_error](assets/scatter_plot_house_error.PNG)|
+|Compare my prediction with the initial training csv|Show every failed prediction                                    |
