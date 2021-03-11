@@ -28,10 +28,10 @@ This are some visualizations for dataset:
 |--------------------------------|----------------------------------------------|
 |![describe](assets/describe.PNG)|![describe_object](assets/describe_object.PNG)|
 
-|[scatter_plot.py‎‎‎‎](scatter_plot.py)   ‎‎‎‎‎                  |[scatter_plot_house.py](scatter_plot_house.py)      |[scatter_plot_house_upgraded.py](scatter_plot_house_upgraded.py)      |
-|-------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------|
-|![scatter_plot](assets/scatter_plot.PNG)               |![scatter_plot_house](assets/scatter_plot_house.PNG)|![scatter_plot_house_upgraded](assets/scatter_plot_house_upgraded.PNG)|
-|Show values for two courses using Cartesian coordinates|Same but with color for houses                      |Show features I will use                                              |
+|[scatter_plot.py‎‎‎‎](scatter_plot.py)   ‎‎‎‎‎                  |[scatter_plot_house.py](scatter_plot_house.py)             |[scatter_plot_house_upgraded.py](scatter_plot_house_upgraded.py)      |
+|-------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------|
+|![scatter_plot](assets/scatter_plot.PNG)               |![scatter_plot_house](assets/scatter_plot_house.PNG)       |![scatter_plot_house_upgraded](assets/scatter_plot_house_upgraded.PNG)|
+|Show values for two courses using Cartesian coordinates|Same but with color for houses and without useless features|Show features I will use                                              |
 
 |[pair_plot.py](pair_plot.py)      |[pair_plot_useless.py](pair_plot_useless.py)                                                 |
 |----------------------------------|---------------------------------------------------------------------------------------------|
@@ -46,7 +46,7 @@ This are some visualizations during training:
 |Result once training is made between 2 features       |Cost function                                     |
 
 ### Predict phase
-This are some visualizations during training:
+This are some visualizations during prediction:
 |[logreg_predict.py](logreg_predict.py)             |[scatter_plot_house_error.py](scatter_plot_house_error.py)      |
 |---------------------------------------------------|----------------------------------------------------------------|
 |![logreg_predict](assets/logreg_predict.PNG)       |![scatter_plot_house_error](assets/scatter_plot_house_error.PNG)|
