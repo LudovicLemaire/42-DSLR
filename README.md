@@ -23,7 +23,7 @@ pip3 install pandas numpy matplotlib seaborn
 ```
 
 ### Data description
-This are some visualizations for dataset:
+These are some visualizations for dataset:
 
 |[describe.py](describe.py)      |[describe_object.py](describe_object.py)      |
 |--------------------------------|----------------------------------------------|
@@ -40,14 +40,14 @@ This are some visualizations for dataset:
 |Pair plot from SeaBorn            |Tried to find if I could use birthday, names, best hand in some way, but they are all useless|
 
 ### Training phase
-This are some visualizations during training:
+These are some visualizations during training:
 |[logreg_train.py](logreg_train.py)                    |[logreg_train.py](logreg_train.py)                |
 |------------------------------------------------------|--------------------------------------------------|
 |![logreg_train_result](assets/logreg_train_result.PNG)|![logreg_train_cost](assets/logreg_train_cost.PNG)|
 |Result once training is made between 2 features       |Cost function                                     |
 
 ### Predict phase
-This are some visualizations during prediction:
+These are some visualizations during prediction:
 |[logreg_predict.py](logreg_predict.py)             |[scatter_plot_house_error.py](scatter_plot_house_error.py)      |
 |---------------------------------------------------|----------------------------------------------------------------|
 |![logreg_predict](assets/logreg_predict.PNG)       |![scatter_plot_house_error](assets/scatter_plot_house_error.PNG)|
