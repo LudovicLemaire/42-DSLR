@@ -1,9 +1,9 @@
 # DSLR
-DataScience x Logistic Regression - School-42 project
+DataScience x Logregistic Regression - School-42 project
 
 #### Goals:
 * Learn how to read a dataset, to visualize it in different ways, to select and clean unnecessary information from your data.
-* Implement one-vs-all logistic regression that will solve classification problem
+* Implement one-vs-all logregistic regression that will solve classification problem
 
 Look at [subject.pdf](assets/fr.subject.pdf) for more information
 
@@ -40,7 +40,7 @@ This are some visualizations for dataset:
 
 ### Training phase
 This are some visualizations during training:
-|[log_train.py](log_train.py)                    |[log_train.py](log_train.py)                |
+|[logreg_train.py](logreg_train.py)                    |[logreg_train.py](logreg_train.py)                |
 |------------------------------------------------|--------------------------------------------|
-|![log_train_result](assets/log_train_result.PNG)|![log_train_cost](assets/log_train_cost.PNG)|
+|![logreg_train_result](assets/logreg_train_result.PNG)|![logreg_train_cost](assets/logreg_train_cost.PNG)|
 |Result once training is made between 2 features |Cost function                               |
